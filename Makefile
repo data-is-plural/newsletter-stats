@@ -12,6 +12,9 @@ charts/subscribers.png: now
 charts/open-rate.png: now
 	python scripts/make-chart-open-rate.py < data/messages.csv > $@
 
-charts: charts/subscribers.png charts/open-rate.png
+charts/unique-opens.png: now
+	python scripts/make-chart-unique-opens.py < data/messages.csv > $@
+
+charts: charts/subscribers.png charts/open-rate.png charts/unique-opens.png
 
 all: data/messages.csv charts
