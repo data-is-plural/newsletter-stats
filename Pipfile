@@ -1,0 +1,18 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+tinystats = "*"
+pandas = "*"
+scipy = "*"
+matplotlib = "*"
+seaborn = "*"
+
+
+[dev-packages]
+
