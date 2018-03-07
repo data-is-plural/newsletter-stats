@@ -1,4 +1,4 @@
-.PHONY: now charts all
+.PHONY: now charts all diff
 
 default:
 
@@ -12,3 +12,6 @@ charts:
 	python scripts/make-charts.py
 
 all: data/messages.csv charts
+
+diff:
+	git diff --word-diff --word-diff-regex="[^,]+" data/
