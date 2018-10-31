@@ -1,11 +1,12 @@
 #!/usrb/bin/env python
 import sys
 import pandas as pd
-from datetime import datetime
+from datetime import datetime, timedelta
 from matplotlib import pyplot
 import seaborn as sb
 sb.set()
 
+ONE_WEEK = timedelta(days = 7)
 messages = pd.read_csv("data/messages.csv")
 messages["sent_at"] = messages["sent_at"].apply(datetime.fromtimestamp)
 messages = messages.set_index(messages["sent_at"])
@@ -47,7 +48,7 @@ def make_chart(settings):
         color = settings["color"],
         alpha = 0.5,
         ylim = settings["ylim"],
-        xlim = (min(messages.index), max(messages.index))
+        xlim = (min(messages.index) - ONE_WEEK, max(messages.index) + ONE_WEEK)
     )
 
     messages[var].plot(
