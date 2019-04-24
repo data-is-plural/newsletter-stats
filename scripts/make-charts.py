@@ -47,8 +47,6 @@ def make_chart(settings):
         figsize = (12, 8),
         color = settings["color"],
         alpha = 0.5,
-        ylim = settings["ylim"],
-        xlim = (min(messages.index) - ONE_WEEK, max(messages.index) + ONE_WEEK)
     )
 
     messages[var].plot(
@@ -57,6 +55,12 @@ def make_chart(settings):
         marker = "o",
         color = settings["color"],
         alpha = 0.5,
+    )
+
+    ax.set_ylim(settings["ylim"])
+    ax.set_xlim(
+        min(messages.index) - ONE_WEEK,
+        max(messages.index) + ONE_WEEK
     )
 
     ax.figure.set_facecolor("#FFFFFF")
